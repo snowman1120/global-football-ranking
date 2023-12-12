@@ -1,0 +1,24 @@
+{
+  "name": "global-football-rankings",
+  "private": true,
+  "engines": {
+    "node": "21.x",
+    "npm": "please-use-yarn",
+    "yarn": ">=1.22.5"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/prettier": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "kill-port": "^2.0.1",
+    "prettier": "^3.1.0"
+  }
+}

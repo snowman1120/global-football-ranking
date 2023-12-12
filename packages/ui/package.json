@@ -1,0 +1,55 @@
+{
+  "name": "ui",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "engines": {
+    "node": "21.x",
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.22.5"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "start": "cd server && npm start",
+    "test:e2e": "cross-env DOTENV_CONFIG_PATH=./.env.sample NODE_ENV=test cypress open --e2e -b electron",
+    "e2eheadless": "cypress run --headless",
+    "lint": "eslint --cache ."
+  },
+  "devDependencies": {
+    "cypress": "^12.8.1",
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-vue": "^9.2.0",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "@iconify/vue": "^4.1.1",
+    "@trpc/client": "^10.38.1",
+    "@trpc/server": "^10.38.1",
+    "@vitejs/plugin-vue": "^3.0.0",
+    "@vuelidate/core": "^2.0.0-alpha.32",
+    "@vuelidate/validators": "^2.0.0-alpha.25",
+    "axios": "^0.27.2",
+    "qs": "^6.11.2",
+    "typescript": "^5.1.6",
+    "unplugin-vue-components": "0.24.1",
+    "vite": "^3.0.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-pages": "^0.28.0",
+    "vite-plugin-vue-layouts": "^0.8.0",
+    "vue": "^3.2.37",
+    "vue-advanced-cropper": "^2.8.1",
+    "vue-meta": "^2.4.0",
+    "vue-router": "^4.0.0-0",
+    "vue-tsc": "^1.8.8"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.0.7"
+  }
+}

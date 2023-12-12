@@ -1,0 +1,6 @@
+User-agent: *
+
+Disallow: *utm_source= Disallow: *utm_campaign= Disallow: *utm_content= Disallow: *gclid=
+Disallow: /cdn-cgi/
+
+Sitemap: https://www.globalfootballrankings.com/sitemap.xml

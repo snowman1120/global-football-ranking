@@ -1,0 +1,96 @@
+body {
+  color: white;
+  background-color: black;
+  font-family: "Avenir Next", Serif;
+}
+
+.align {
+  vertical-align: middle;
+};
+
+.image-container {
+  text-align: center; /* Center the image horizontally */
+}
+
+.responsive-image {
+  max-width: 40%; /* Set the maximum width to fill the container */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+th, td {
+  text-align: leading;
+  padding-bottom: 7pt;
+  padding-top: 7pt;
+  padding-left: 10pt; /* Adjust this value for desired horizontal space */
+}
+
+th:not(:last-child),
+td:not(:last-child) {
+  padding-right: 40pt; /* Apply only when it's not the last cell in a row */
+}
+
+.info-table th:not(:last-child),
+.info-table td:not(:last-child) {
+  padding-right: 30pt; /* Reset padding for .info-table */
+}
+
+.custom-align-1 {
+  text-align: leading;
+}
+
+.custom-align-2 {
+  text-align: center;
+}
+
+@media all and (max-width: 800pt) {
+
+.responsive-image {
+  max-width: 57%; /* Set the maximum width to fill the container */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    padding-right: 0pt; /* Apply only when it's not the last cell in a row */
+  }
+
+  .custom-align-1, .custom-align-2 {
+    text-align: center;
+  }
+
+  table {
+    font-size: 3.5vw;
+    width: 100%;
+  }
+
+  .info-table {
+    font-size: 3.5vw;
+  }
+
+  th, td {
+    text-align: leading;
+    padding-bottom: 7px;
+    padding-left: 0; /* Adjust this value for desired horizontal space */
+    padding-right: 0;
+  }
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tr:nth-child(even) {
+  background-color: #222222;
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+.align {
+  text-align: center;
+}
