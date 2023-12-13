@@ -1,6 +1,5 @@
 import * as express from 'express';
 import { SharedState } from './SharedState';
-import { Ranking } from './model/Ranking';
 import { WorldCupData } from './model/WorldCupData';
 import { timeAgoDisplay, combine, generateRanking, getTeamsFromRankings } from './utils';
 const router = express.Router();

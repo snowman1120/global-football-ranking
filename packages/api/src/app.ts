@@ -4,6 +4,7 @@
  */
 import * as dotenv from 'dotenv';
 import * as express from 'express';
+import * as cors from 'cors';
 import * as expressSitemapXml from 'express-sitemap-xml';
 const promMid = require('express-prometheus-middleware');
 import { generateURLs } from './utils';
@@ -13,6 +14,7 @@ dotenv.config();
 
 const app: express.Application = express();
 
+app.use(cors());
 app.use('/api', api);
 app.use(expressSitemapXml(generateURLs, 'https://www.globalfootballrankings.com'));
 app.use(promMid({

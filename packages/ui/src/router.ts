@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from './pages/home/home.vue';
-import Team from './pages/team/team.vue';
-import WorldCupGroups from './pages/worldcupgroups/worldcupgroups.vue';
-import Ranking from './pages/ranking/Ranking.vue';
+import Team from '@/pages/team/team.vue';
+import WorldCupGroups from '@/pages/worldcupgroups/worldcupgroups.vue';
+import Ranking from '@/pages/ranking/Ranking.vue';
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: Ranking },
+    { path: '/international', component: Ranking },
     { path: '/team/:id', component: Team },
     { path: '/worldcupgroups', component: WorldCupGroups },
   ],
@@ -18,11 +18,6 @@ router.beforeEach(async (to, _from, next) => {
   window.scrollTo(0, 0);
   if (!to.matched.length) next(new Error(`Location "${to.fullPath}" does not exist`));
   next();
-});
-
-router.afterEach(to => {
-  if (to.path.split('/')[1] === 'team')
-    document.title = to.meta.title || '';
 });
 
 router.onError((error, to) => {

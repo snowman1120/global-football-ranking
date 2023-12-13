@@ -1,11 +1,6 @@
 {
   "name": "global-football-rankings",
   "private": true,
-  "engines": {
-    "node": "21.x",
-    "npm": "please-use-yarn",
-    "yarn": ">=1.22.5"
-  },
   "workspaces": [
     "packages/*"
   ],

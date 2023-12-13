@@ -74,26 +74,24 @@ export const generateRanking = (ar: Team[], leagueName: string) => {
   const offensiveAverage = getTotalData.avgOffense.toFixed(1);
   const defensiveAverage = getTotalData.avgDefense.toFixed(1);
 
-  const ranking: Ranking = {
-    league: leagueName,
-    average: average,
-    stdDev: stdDev,
-    SPIAverage: SPIAverage,
-    SPIStdDev: SPIStdDev,
-    offensiveAverage: offensiveAverage,
-    defensiveAverage: defensiveAverage,
-    topTenAverage: averageTopTen,
-    topTenStdDev: stdDevTopTen,
-    topTenSPIAverage: topTenSPIAverage,
-    topTenSPIStdDev: topTenSPIStdDev,
-    bestTeam: new SuperTeam(bestTeam),
-    worstTeam: new SuperTeam(worstTeam),
-    teams: sorted.map((team) => new SuperTeam(team)),
-    reversedTeams: sorted.slice().map((team) => new SuperTeam(team)).reverse(),
-    distributions: distributionCalculation(sorted),
-    leagueModel: undefined,
-    uniqueID: ''
-  };
+  const ranking: Ranking = new Ranking(
+    leagueName,
+    average,
+    stdDev,
+    SPIAverage,
+    SPIStdDev,
+    offensiveAverage,
+    defensiveAverage,
+    averageTopTen,
+    stdDevTopTen,
+    topTenSPIAverage,
+    topTenSPIStdDev,
+    new SuperTeam(bestTeam),
+    new SuperTeam(worstTeam),
+    sorted.map((team) => new SuperTeam(team)),
+    sorted.slice().map((team) => new SuperTeam(team)).reverse(),
+    distributionCalculation(sorted),
+  );
 
   return ranking
 }
