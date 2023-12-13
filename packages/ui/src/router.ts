@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Team from '@/pages/team/team.vue';
 import WorldCupGroups from '@/pages/worldcupgroups/worldcupgroups.vue';
 import Ranking from '@/pages/ranking/Ranking.vue';
+import Info from '@/pages/info/Info.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -10,6 +11,14 @@ const router = createRouter({
     { path: '/international', component: Ranking },
     { path: '/team/:id', component: Team },
     { path: '/worldcupgroups', component: WorldCupGroups },
+    { path: '/compare', component: Info },
+    { path: '/international/compare', component: Info },
+    { path: '/compare/:first/:second', component: Info },
+    { path: '/international/compare/:first/:second', component: Info },
+    { path: '/all', component: Info },
+    { path: '/international/all', component: Info },
+    { path: '/info2', component: Info },
+    { path: '/international/info2', component: Info },
   ],
 });
 

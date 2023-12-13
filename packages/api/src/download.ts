@@ -14,13 +14,13 @@ import { SharedState } from './SharedState';
 import { generateRanking } from './utils';
 
 const getTeamInfoFromCSV = async (url: string | https.RequestOptions | URL, leagueKey: String): Promise<any[]> => {
-  const map = (teams: any[], leagueKey: any) => teams.map(team => ({
-      SPI: Number(team.spi),
-      name: team.name,
-      league: team[leagueKey],
-      offense: Number(team.off),
-      defense: Number(team.def),
-    }));
+  const map = (teams: any[], leagueKey: any) => teams.map(team => (new Team(
+      Number(team.spi),
+      Number(team.off),
+      Number(team.def),
+      team.name,
+      team[leagueKey],
+  )));
   return new Promise((resolve, reject) => {
     const data: any[] = []
     https.get(url, response => {

@@ -18,5 +18,6 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line vue/require-prop-types
 const props = defineProps(['isInternational']);
 </script>
