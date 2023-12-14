@@ -58,11 +58,6 @@ td:not(:last-child) {
     text-align: center;
   }
 
-  table {
-    font-size: 3.5vw;
-    width: 100%;
-  }
-
   .info-table {
     font-size: 3.5vw;
   }
@@ -80,6 +75,7 @@ table {
   margin-right: auto;
   border-collapse: collapse;
   border-spacing: 0;
+  text-align: start !important;
 }
 
 tr:nth-child(even) {

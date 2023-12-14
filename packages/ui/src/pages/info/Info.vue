@@ -93,7 +93,7 @@ onMounted(async () => {
 
   initialData.value = res.data ?? {};
 
-  meta.title = initialData.value.state.title | initialData.value.state.topTitle;
+  meta.title = initialData.value.state.title || initialData.value.state.topTitle;
   if (initialData.value.state.firstLeague === initialData.value.state.otherLeague) {
     if (initialData.value.isInternational) {
       meta.meta.push({
@@ -198,17 +198,50 @@ onMounted(async () => {
     document.head.appendChild(externalScript);
   }
 
-  const infoJs = document.createElement('script');
-  infoJs.setAttribute('src', '/info.js');
-  infoJs.setAttribute('type', 'text/javascript');
-  infoJs.setAttribute('charset', 'utf-8');
-  infoJs.setAttribute('async', 'async');
-  document.head.appendChild(infoJs);
-
   const chartJs = document.createElement('script');
   chartJs.setAttribute('src', 'https://www.gstatic.com/charts/loader.js');
   chartJs.setAttribute('type', 'text/javascript');
   document.head.appendChild(chartJs);
+
+  setTimeout(() => {
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+  }, 500);
 });
 
+const drawChart = () => {
+  const teamData = [['Ranking', 'SPI']];
+  for (const d of initialData.value.state.ranking.reversedTeams) {
+      teamData.push([ d.team.name, d.SPI_ ]);
+  }
+  const data = google.visualization.arrayToDataTable(teamData);
+
+  const options = {
+    colors: ['orange'],
+    title: `Distribution of SPI in: ${initialData.value.state.title}`,
+    hAxis: {
+      ticks: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100],
+      textStyle: {color: "white"}
+    },
+    legend: {textStyle: {color: 'white', fontSize: 16}},
+    titleTextStyle: {color: "white"},
+    vAxis: {
+      minorGridlines: {count: 0},
+      textStyle: {color: "white"},
+    },
+    chartArea:{width:'95%',height:'75%',backgroundColor: "black"},
+    bar: { gap: 0 },
+
+    histogram: {
+      bucketSize: 0.02,
+      maxNumBuckets: 20,
+      minValue: 0,
+      maxValue: 100
+    },
+    backgroundColor: "black",
+    height: 350,
+  };
+  const chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+  chart.draw(data, options);
+}
 </script>

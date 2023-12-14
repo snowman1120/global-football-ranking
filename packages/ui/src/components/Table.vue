@@ -12,7 +12,7 @@
         <td>{{ index + 1 }}. <a :href="team.teamLink">{{ team.team.name }}</a></td>
         <td style="padding-right:5px;padding-left:5px">{{ team.SPI_ }}</td>
         <td v-if="props.state?.amountOfLeagues > 1" class="custom-align-1">
-          <a :href="prependedRelativePath + '/info2/' + team.team.leagueModel.uniqueID" target="_self">{{ team.team.leagueModel.leagueName }}</a>  
+          <a :href="props.state.prependedRelativePath + '/info2/' + team.team.leagueModel.uniqueID" target="_self">{{ team.team.leagueModel.leagueName }}</a>  
           <span :title="team.team.leagueModel.leagueCountry"> {{ team.team.leagueModel.flag }}</span>
         </td>
         <td class="custom-align-2">{{ team.offense_ }}</td>
