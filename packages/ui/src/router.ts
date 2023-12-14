@@ -17,8 +17,8 @@ const router = createRouter({
     { path: '/international/compare/:first/:second', component: Info },
     { path: '/all', component: Info },
     { path: '/international/all', component: Info },
-    { path: '/info2', component: Info },
-    { path: '/international/info2', component: Info },
+    { path: '/info2/:league', component: Info },
+    { path: '/international/info2/:league', component: Info },
   ],
 });
 

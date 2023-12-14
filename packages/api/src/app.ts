@@ -5,6 +5,7 @@
 import * as dotenv from 'dotenv';
 import * as express from 'express';
 import * as cors from 'cors';
+import * as path from 'path';
 import * as expressSitemapXml from 'express-sitemap-xml';
 const promMid = require('express-prometheus-middleware');
 import { generateURLs } from './utils';
@@ -24,6 +25,14 @@ app.use(promMid({
   requestLengthBuckets: [512, 1024, 5120, 10240, 51200, 102400],
   responseLengthBuckets: [512, 1024, 5120, 10240, 51200, 102400],
 }));
+
+app.use(express.static(path.resolve(__dirname, './public')));
+app.all('*', (req, res) => res.sendFile(path.resolve(__dirname, './public/index.html')));
+
+// catch 404 and forward to error handler
+app.use((_req, res) => {
+  res.status(404).send('Not Found');
+});
 
 const port = process.env.port || 5000;
 app.listen(port, () => {

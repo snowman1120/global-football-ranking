@@ -12,7 +12,7 @@
     </div>
     <hr style="width:75%">
     <template v-if="isInternational && initialData.state?.title !== 'Clubs'">
-      <h2 v-if="initialData.state?.title" class="align">#(state.title)</h2>
+      <h2 v-if="initialData.state?.title" class="align">{{ initialData.state.title }}</h2>
       <h2 v-else class="align">{{ initialData.state?.title }} <img class="align" :src="'/' + initialData.state?.lowercaseTitle + '.png'" height="45"></h2> 
     </template>
     <h2 v-else class="align">{{ initialData.state?.title }}</h2>
@@ -71,7 +71,8 @@ onMounted(async () => {
     } else if (route.fullPath.includes('/all')) {
       res = await getInternationalAll();
     } else if (route.fullPath.includes('/info2')) {
-      res = await getInternationalInfo2();
+      const league = route.params.league;
+      res = await getInternationalInfo2(league);
     }
   } else {
     if (route.fullPath.includes('/compare')) {
@@ -87,7 +88,8 @@ onMounted(async () => {
     } else if (route.fullPath.includes('/all')) {
       res = await getAll();
     } else if (route.fullPath.includes('/info2')) {
-      res = await getInfo2();
+      const league = route.params.league;
+      res = await getInfo2(league);
     }
   }
 

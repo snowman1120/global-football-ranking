@@ -78,7 +78,7 @@ const info2 = (req: any, isInternational: boolean) => {
     prependedRelativePath: getSomeInfo(isInternational).relativePathString,
     howDoesThisWork: getSomeInfo(isInternational).howDoesThisWork,
     topTitle: getSomeInfo(isInternational).topTitle,
-    lowercaseTitle: title.lowercased(),
+    lowercaseTitle: title.toLowerCase(),
     isCompare: false
   }
   return {
