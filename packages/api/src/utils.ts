@@ -8,21 +8,21 @@ let sitemapURLs: any[] = [];
 
 export const timeAgoDisplay = (date: Date) => {
   const now = new Date();
-  const minuteAgo = new Date(date.getTime() - 60000);
-  const hourAgo = new Date(date.getTime() - 3600000);
-  const dayAgo = new Date(date.getTime() - 86400000);
-  const weekAgo = new Date(date.getTime() - 604800000);
+  const minuteAgo = new Date(now.getTime() - 60000);
+  const hourAgo = new Date(now.getTime() - 3600000);
+  const dayAgo = new Date(now.getTime() - 86400000);
+  const weekAgo = new Date(now.getTime() - 604800000);
 
-  if (minuteAgo < now) {
+  if (minuteAgo < date) {
     const diff = Math.round((now.getTime() - date.getTime()) / 1000);
     return `${diff} sec ago`;
-  } else if (hourAgo < now) {
+  } else if (hourAgo < date) {
     const diff = Math.round((now.getTime() - date.getTime()) / 60000);
     return `${diff} min ago`;
-  } else if (dayAgo < now) {
+  } else if (dayAgo < date) {
     const diff = Math.round((now.getTime() - date.getTime()) / 3600000);
     return `${diff} hrs ago`;
-  } else if (weekAgo < now) {
+  } else if (weekAgo < date) {
     const diff = Math.round((now.getTime() - date.getTime()) / 86400000);
     return `${diff} days ago`;
   }

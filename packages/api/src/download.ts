@@ -83,6 +83,7 @@ const download = async () => {
   WorldCupData.data.setWorldGroups(worldCupGroups)
 }
 
-setInterval(() => {
+(function interval() {
   download();
-}, 0, 3600000);
+  setTimeout(interval, 3600000);
+})();
