@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const http = axios.create({
-  baseURL: 'http://localhost:5000/api', // should be set based on env
+  baseURL: '/api', // should be set based on env
 });
 
 export const getRanking = () => http.get('/');
